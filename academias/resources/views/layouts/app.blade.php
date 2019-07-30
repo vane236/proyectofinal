@@ -111,7 +111,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENÚ</li>
         <li>
-        <a href="/*route('dashboard')*/">
+        <a href="/home">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -137,8 +137,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=" /*route('cursos.create') */"><i class="fa fa-circle-o"></i> Añadir curso</a></li>
-          <li><a href=" /*route('cursos.list') */"><i class="fa fa-circle-o"></i> Ver lista de cursos</a></li>
+          <li><a href="/cursos/nuevo"><i class="fa fa-circle-o"></i> Añadir curso</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de cursos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -150,8 +150,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=" /*route('maestros.create') */}}"><i class="fa fa-circle-o"></i> Añadir maestro</a></li>
-          <li><a href=" /*route('maestros.list') */}}"><i class="fa fa-circle-o"></i> Ver lista de maestros</a></li>
+          <li><a href="/maestros/nuevo"><i class="fa fa-circle-o"></i> Añadir maestro</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de maestros</a></li>
           </ul>
         </li>
 
@@ -165,8 +165,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=" /*route('alumnos.create')*/ }}"><i class="fa fa-circle-o"></i> Alta alumno</a></li>
-          <li><a href=" /*route('alumnos.list')*/ }}"><i class="fa fa-circle-o"></i> Ver lista de alumnos</a></li>
+          <li><a href="/alumnos/nuevo"><i class="fa fa-circle-o"></i> Alta alumno</a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de alumnos</a></li>
           </ul>
         </li>
         
@@ -179,8 +179,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href=" /*route('horarios.create')*/ }}"><i class="fa fa-circle-o"></i> Añadir horario </a></li>
-          <li><a href=" /*route('horarios.list') */}}"><i class="fa fa-circle-o"></i> Ver lista de horarios </a></li>
+          <li><a href="/horarios/nuevo"><i class="fa fa-circle-o"></i> Añadir horario </a></li>
+          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de horarios </a></li>
           </ul>
         </li>
 
