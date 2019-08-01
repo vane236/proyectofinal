@@ -15,9 +15,11 @@ class CreateMaestrosTable extends Migration
     {
         Schema::create('maestros', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',255);
-            $table->string('telefono',50);
-            $table->string('email',70)->unique();
+            $table->string('nombre');
+            $table->string('apellidoPaterno');
+            $table->string('apellidoMaterno');
+            $table->string('telefono');
+            $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
         });

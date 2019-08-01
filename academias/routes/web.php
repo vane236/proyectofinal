@@ -11,21 +11,17 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 
-/*Route::get('/academias/nuevo', function () {
-    return view('academias.create');
-});*/
+    Route::resource('academias', 'AcademiasController')->middleware('auth');
 
-Auth::routes();
+    Auth::routes(['register'=>false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');  
 
-Route::get('/academias/nuevo', 'AcademiasController@create');
-Route::get('/cursos/nuevo', 'CursosController@create');
+
+
+

@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('content')
 
@@ -10,11 +10,11 @@
     </div>
 @endif
 
-<form action="{{url('academias')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+<form action="{{url('maestros')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
     {{ csrf_field() }}
 
-    @include('academias.form', ['Modo'=>'crear'])
+    @include('maestros.form', ['Modo'=>'crear'])
 
     
 </form>

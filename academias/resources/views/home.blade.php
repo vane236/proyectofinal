@@ -1,3 +1,6 @@
+
+
+
 @extends('layouts.app')
 
 @section('body')
@@ -21,14 +24,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>150</h3>
+            <h3>{{$countAcademias}}</h3>
 
             <p>Academias</p>
           </div>
           <div class="icon">
             <i class="fa fa-university"></i>
           </div>
-          <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{url('academias')}}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -43,7 +46,7 @@
           <div class="icon">
             <i class="fa fa-book"></i>
           </div>
-          <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('cursos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -58,7 +61,7 @@
           <div class="icon">
             <i class="fa fa-users"></i>
           </div>
-          <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('maestros') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -73,7 +76,7 @@
           <div class="icon">
             <i class="fa fa-user"></i>
           </div>
-          <a href="#" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('alumnos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

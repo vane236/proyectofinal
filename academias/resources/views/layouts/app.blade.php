@@ -124,8 +124,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/academias/nuevo"><i class="fa fa-circle-o"></i> Añadir academia</a></li>
-          <li><a href=" /*route('academias.list') */"><i class="fa fa-circle-o"></i> Ver lista de academias</a></li>
+          <li><a href="academias/create"><i class="fa fa-circle-o"></i> Añadir academia</a></li>
+          <li><a href="{{url('academias')}}"><i class="fa fa-circle-o"></i> Ver lista de academias</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -137,8 +137,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/cursos/nuevo"><i class="fa fa-circle-o"></i> Añadir curso</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de cursos</a></li>
+          <li><a href="/cursos/create"><i class="fa fa-circle-o"></i> Añadir curso</a></li>
+          <li><a href="{{url('cursos')}}"><i class="fa fa-circle-o"></i> Ver lista de cursos</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -150,8 +150,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/maestros/nuevo"><i class="fa fa-circle-o"></i> Añadir maestro</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de maestros</a></li>
+          <li><a href="/maestros/create"><i class="fa fa-circle-o"></i> Añadir maestro</a></li>
+          <li><a href="{{url('maestros')}}"><i class="fa fa-circle-o"></i> Ver lista de maestros</a></li>
           </ul>
         </li>
 
@@ -165,8 +165,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/alumnos/nuevo"><i class="fa fa-circle-o"></i> Alta alumno</a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de alumnos</a></li>
+          <li><a href="/alumnos/create"><i class="fa fa-circle-o"></i> Alta alumno</a></li>
+          <li><a href="{{url('alumnos')}}"><i class="fa fa-circle-o"></i> Ver lista de alumnos</a></li>
           </ul>
         </li>
         
@@ -179,8 +179,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/horarios/nuevo"><i class="fa fa-circle-o"></i> Añadir horario </a></li>
-          <li><a href="#"><i class="fa fa-circle-o"></i> Ver lista de horarios </a></li>
+          <li><a href="/horarios/create"><i class="fa fa-circle-o"></i> Añadir horario </a></li>
+          <li><a href="{{url('horarios')}}"><i class="fa fa-circle-o"></i> Ver lista de horarios </a></li>
           </ul>
         </li>
 
