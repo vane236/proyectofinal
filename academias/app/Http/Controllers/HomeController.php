@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Academias;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $countAcademias = Academias::count();
-        return view('home',compact('countAcademias'));
+        $countUsuarios = User::count();
+        return view('home',compact(['countAcademias','countUsuarios']));
     }
 }

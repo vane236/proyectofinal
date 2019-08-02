@@ -12,15 +12,24 @@
 */
 
 
-    Route::get('/', function () {
-        return view('auth.login');
-    });
+Route::get('/', function () {
+    return view('auth.login');
+});
 
-    Route::resource('academias', 'AcademiasController')->middleware('auth');
+Route::resource('academias', 'AcademiasController')->middleware('auth');
+Route::resource('usuarios', 'UserController')->middleware('auth');
 
-    Auth::routes(['register'=>false]);
+Auth::routes();
 
-    Route::get('/home', 'HomeController@index')->name('home');  
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('maestros')->group(function(){
+    Route::get('/login', 'Auth\MaestrosLoginController@showLoginForm')->name('maestros.login');
+    Route::post('/login', 'Auth\MaestrosLoginController@login')->name('maestros.login.submit');
+});
+
+
+Route::get('/maestrosHome', 'MaestrosController@index')->name('maestros.dashboard');
 
 
 

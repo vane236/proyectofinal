@@ -38,7 +38,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="home" class="logo">
+    <a href="maestrosHome" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b></b></span>
       <!-- logo for regular state and mobile devices -->
@@ -111,7 +111,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENÚ</li>
         <li>
-        <a href="/home">
+        <a href="/maestrosHome">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -119,40 +119,13 @@
           <a href="#">
             <i class="fa fa-university"></i>
             <span>Academias</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-          <li><a href="academias/create"><i class="fa fa-circle-o"></i> Añadir academia</a></li>
-          <li><a href="{{url('academias')}}"><i class="fa fa-circle-o"></i> Ver lista de academias</a></li>
-          </ul>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-book"></i>
             <span>Cursos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-          <li><a href="/cursos/create"><i class="fa fa-circle-o"></i> Añadir curso</a></li>
-          <li><a href="{{url('cursos')}}"><i class="fa fa-circle-o"></i> Ver lista de cursos</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i>
-            <span>Maestros</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href="/maestros/create"><i class="fa fa-circle-o"></i> Añadir maestro</a></li>
-          <li><a href="{{url('maestros')}}"><i class="fa fa-circle-o"></i> Ver lista de maestros</a></li>
-          </ul>
         </li>
 
 
@@ -160,57 +133,14 @@
           <a href="#">
             <i class="fa fa-user"></i>
             <span>Alumnos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-          <li><a href="/alumnos/create"><i class="fa fa-circle-o"></i> Alta alumno</a></li>
-          <li><a href="{{url('alumnos')}}"><i class="fa fa-circle-o"></i> Ver lista de alumnos</a></li>
-          </ul>
         </li>
         
         <li class="treeview">
           <a href="#">
             <i class="fa fa-clock-o"></i>
             <span>Horarios</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-          <li><a href="/horarios/create"><i class="fa fa-circle-o"></i> Añadir horario </a></li>
-          <li><a href="{{url('horarios')}}"><i class="fa fa-circle-o"></i> Ver lista de horarios </a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-money"></i>
-            <span>Pagos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href="/pagos/create"><i class="fa fa-circle-o"></i> pagos </a></li>
-          <li><a href="{{url('pagos')}}"><i class="fa fa-circle-o"></i> pagos </a></li>
-          </ul>
-        </li>
-
-        <!-- Admin - user -->
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-suitcase"></i>
-            <span>Administradores</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-          <li><a href="/usuarios/create"><i class="fa fa-circle-o"></i> Añadir administrador </a></li>
-          <li><a href="{{url('usuarios')}}"><i class="fa fa-circle-o"></i> Ver lista de administradores </a></li>
-          </ul>
         </li>
 
       </ul>
@@ -218,7 +148,7 @@
     <!-- /.sidebar -->
   </aside>
 
-  @yield('body')
+  @yield('maestroBody')
   
   <!-- /.content-wrapper -->
   <footer class="main-footer">

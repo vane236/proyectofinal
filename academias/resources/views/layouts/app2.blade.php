@@ -36,23 +36,23 @@
                         <ul> <a class="nav-link" href="{{url('home')}}">Dashboard</a> </ul>
                     <ul> <a class="nav-link" href="{{url('academias')}}">Academias</a>
                                 <li><a href="{{ url('academias/create') }}">Añadir academia</a></li>
-                                <li><a href="">Lista de academias</a></li>
+                                <li><a href="{{url('academias')}}">Lista de academias</a></li>
                             </ul>
                             <ul><a class="nav-link" href="">Cursos</a>
-                                <li><a href="">Añadir curso</a></li>
-                                <li><a href="">Lista de cursos</a></li>
+                                <li><a href="#">Añadir curso</a></li>
+                                <li><a href="#">Lista de cursos</a></li>
                             </ul>
                             <ul><a class="nav-link" href="">Maestros</a>
-                                <li><a href="">Añadir maestro</a></li>
-                                <li><a href="">Lista de maestros</a></li>
+                                <li><a href="#">Añadir maestro</a></li>
+                                <li><a href="#">Lista de maestros</a></li>
                             </ul>
                             <ul><a class="nav-link" href="">Alumnos</a>
-                                <li><a href="">Añadir alumno</a></li>
-                                <li><a href="">Lista de alumnos</a></li>
+                                <li><a href="#">Añadir alumno</a></li>
+                                <li><a href="#">Lista de alumnos</a></li>
                             </ul>
                             <ul><a class="nav-link" href="">Horarios</a>
-                                <li><a href="">Añadir horario</a></li>
-                                <li><a href="">Lista de Horarios</a></li>
+                                <li><a href="#">Añadir horario</a></li>
+                                <li><a href="#">Lista de Horarios</a></li>
                             </ul>
                     </ul>
 

@@ -46,6 +46,17 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'maestros' => [
+            'driver' => 'session',
+            'provider' => 'maestros',
+        ],
+
+        'maestros-api' => [
+            'driver' => 'token',
+            'provider' => 'maestros',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -70,6 +81,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+
+        'maestros' => [
+            'driver' => 'eloquent',
+            'model' => App\Maestros::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -97,6 +113,12 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+
+        'maestros' => [
+            'provider' => 'maestros',
+            'table' => 'password_resets',
+            'expire' => 15,
         ],
     ],
 

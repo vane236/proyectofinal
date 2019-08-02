@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class MaestrosController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:maestros');
+    }
+
 
     /**
      * Display a listing of the resource.
@@ -15,7 +25,7 @@ class MaestrosController extends Controller
      */
     public function index()
     {
-        //
+        return view('maestrosHome');
     }
 
     /**

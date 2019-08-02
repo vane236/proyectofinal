@@ -1,9 +1,9 @@
 
 
 
-@extends('layouts.app')
+@extends('layouts.maestroApp')
 
-@section('body')
+@section('maestroBody')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -13,7 +13,7 @@
         Inicio
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/home"><i class="fa fa-dashboard"></i> dashboard</a></li>
+        <li><a href="/maestrosHome"><i class="fa fa-dashboard"></i> dashboard Maestros</a></li>
       </ol>
     </section>
 
@@ -24,14 +24,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-            <h3>{{$countAcademias}}</h3>
+          <h3>2</h3>
 
             <p>Academias</p>
           </div>
           <div class="icon">
             <i class="fa fa-university"></i>
           </div>
-          <a href="{{url('academias')}}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{url('#')}}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -39,31 +39,18 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-            <h3>10<sup style="font-size: 20px"></sup></h3>
+          <h3>4<sup style="font-size: 20px"></sup></h3>
 
             <p>Cursos</p>
           </div>
           <div class="icon">
             <i class="fa fa-book"></i>
           </div>
-          <a href="{{ url('cursos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('#') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-yellow">
-          <div class="inner">
-            <h3>44</h3>
-
-            <p>Maestros</p>
-          </div>
-          <div class="icon">
-            <i class="fa fa-users"></i>
-          </div>
-          <a href="{{ url('maestros') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
+      
       <!-- ./col -->
       <div class="col-lg-3 col-xs-6">
         <!-- small box -->
@@ -76,7 +63,7 @@
           <div class="icon">
             <i class="fa fa-user"></i>
           </div>
-          <a href="{{ url('alumnos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('#') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

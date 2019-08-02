@@ -7,9 +7,9 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <strong><h4><p class="login-box-msg">Iniciar sesión</p></h4></strong>
+    <strong><h4><p class="login-box-msg">Iniciar sesión como profesor</p></h4></strong>
 
-    <form action="{{ route('login') }}" method="post">
+    <form action="{{ route('maestros.login.submit') }}" method="post">
       {!! csrf_field() !!}
       <div class="form-group has-feedback">
         <input type="email" name="email" id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email" value="{{ old('email') }}" required>
@@ -31,7 +31,7 @@
       </div>
       <div class="row">
         <div class="col-xs-8">
-          <a href="{{url('maestros/login')}}">Ingresar como profesor</a>
+            <a href="{{url('login')}}">Ingresar como administrador</a>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
