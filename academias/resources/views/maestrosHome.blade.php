@@ -5,9 +5,17 @@
 
 @section('maestroBody')
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+        @if(Session::has('Mensaje'))
+
+      <div class="alert alert-success" role="alert">
+        {{ Session::get('Mensaje') }}
+      </div>
+
+      @endif
     <section class="content-header">
       <h1>
         Inicio

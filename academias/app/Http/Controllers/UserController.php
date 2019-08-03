@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -40,14 +42,18 @@ class UserController extends Controller
         $campos = [
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:academias',
-            'password' => 'required|min:8|'
+            'password' => 'required|min:8|required_with:confirm_password|same:confirm_password',
+            'confirm_password' => 'min:8',
             //'Foto' => 'required|max:1000|mimes:jpeg,jpg,png'
         ];
 
         $Mensaje = ["required" => 'Campo :attribute es requerido'];
         $this->validate($request,$campos,$Mensaje);
 
-        $datosUsuario = request()->except('_token');
+        $datosUsuario = request()->except(['_token','confirm_password']);
+
+        // password Hash
+        $datosUsuario['password'] = Hash::make($datosUsuario['password']);
 
         /*if($request->hasFile('Foto')){
             $datosUsuario['Foto'] = $request->file('Foto')->store('uploads','public');
@@ -98,7 +104,7 @@ class UserController extends Controller
         $campos = [
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:academias,email,'.$id,
-            'password' => 'required|password|min:8',
+            'password' => 'required|min:8',
         ];
 
         /*if($request->hasFile('Foto')){

@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 
@@ -15,7 +15,7 @@
 
 
 
-<a href="{{ url('academias/create')}}" class="btn btn-success">Agregar academia</a>
+<a href="{{ url('maestros/create')}}" class="btn btn-success">Agregar maestro</a>
 <br>
 <br>
 
@@ -23,8 +23,8 @@
     <thead class="thead-light">
         <tr>
             <th>#</th>
-            <th>Nombre</th>
-            <th>Dirección</th>
+            <th>Foto</th>
+            <th>Nombre completo</th>
             <th>Teléfono</th>
             <th>Email</th>
             <th>Acciones</th>
@@ -32,28 +32,27 @@
     </thead>
 
     <tbody>
-    @foreach ($academias as $academia)
+    @foreach ($maestros as $maestro)
         <tr>
-        <td> {{$academia->id}} </td>
-        <!-- Foto
+        <td> {{$maestro->id}} </td>
+        
         <td>
-            <img src="{{ asset('storage').'/'.$academia->Foto }}" width="100" height="80" class="img-thumbnail" />
+            <img src="{{ asset('storage').'/'.$maestro->Foto }}" width="100" height="80" class="img-thumbnail" />
         </td>
-        -->
-        <td>{{$academia->nombre}}</td>        
-        <td>{{$academia->direccion}}</td>
-        <td>{{$academia->telefono}}</td>
-        <td>{{$academia->email}}</td>
+        
+        <td>{{$maestro->name.' '.$maestro->apellidoPaterno.' '.$maestro->apellidoMaterno}}</td>        
+        <td>{{$maestro->telefono}}</td>
+        <td>{{$maestro->email}}</td>
         <td>
         
-        <a href="{{ url('/academias/'.$academia->id) }}" class="btn btn-primary">
+        <a href="{{ url('/maestros/'.$maestro->id) }}" class="btn btn-primary">
             Detalles
         </a>
-        <a href="{{ url('/academias/'.$academia->id.'/edit') }}" class="btn btn-warning">
+        <!--<a href="{{ url('/maestros/'.$maestro->id.'/edit') }}" class="btn btn-warning">
             Editar
-        </a>
+        </a>-->
 
-        <form action="{{ url('/academias/'.$academia->id) }}" method="post" style="display:inline">
+        <form action="{{ url('/maestros/'.$maestro->id) }}" method="post" style="display:inline">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
 
@@ -69,7 +68,7 @@
 
 </table>
 
-{{ $academias->links() }}
+{{ $maestros->links() }}
 
 </div>
 
