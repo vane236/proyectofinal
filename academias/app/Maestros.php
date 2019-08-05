@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+//use App\Cursos;
 
 class Maestros extends Authenticatable
 {
@@ -39,4 +40,11 @@ class Maestros extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // Relación con cursos
+    public function cursos()
+    {   
+       return $this->belongsToMany(Cursos::class);
+    }
 }

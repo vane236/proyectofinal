@@ -27,6 +27,8 @@
             <th>Nombre completo</th>
             <th>Teléfono</th>
             <th>Email</th>
+            <th>Cursos</th>
+            <th>Academias</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -37,12 +39,25 @@
         <td> {{$maestro->id}} </td>
         
         <td>
-            <img src="{{ asset('storage').'/'.$maestro->Foto }}" width="100" height="80" class="img-thumbnail" />
+            <img src="{{ asset('storage').'/'.$maestro->Foto }}" width="80px" height="80px" class="img-thumbnail" />
         </td>
         
         <td>{{$maestro->name.' '.$maestro->apellidoPaterno.' '.$maestro->apellidoMaterno}}</td>        
         <td>{{$maestro->telefono}}</td>
         <td>{{$maestro->email}}</td>
+
+        <td>
+             
+            
+        </td>
+
+        <td>
+            
+            
+            
+        </td>
+        
+        
         <td>
         
         <a href="{{ url('/maestros/'.$maestro->id) }}" class="btn btn-primary">

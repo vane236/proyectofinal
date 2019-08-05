@@ -36,4 +36,7 @@ Route::get('/maestrosHome', 'HomeMaestrosController@index')->name('maestros.dash
 // Crear un maestro en el dashboard del admin/user
 Route::resource('maestros', 'MaestrosController');
 
+// Cursos
+Route::resource('cursos', 'CursosController');
+
 
