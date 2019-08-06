@@ -7,6 +7,7 @@ use App\Academias;
 use App\Maestros;
 use App\Cursos;
 use App\User;
+use App\Alumnos;
 
 class HomeController extends Controller
 {
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $countMaestros = Maestros::count();
         $countCursos = Cursos::count();
         $countUsuarios = User::count();
-        return view('home',compact(['countAcademias','countUsuarios', 'countCursos','countMaestros']));
+        $countAlumnos = Alumnos::count();
+        return view('home',compact(['countAcademias','countUsuarios', 'countCursos','countMaestros', 'countAlumnos']));
     }
 }

@@ -29,7 +29,20 @@ class CursosController extends Controller
      */
     public function create()
     {
-        return view('cursos.create');
+        // Se obtienen todos los nombres
+        $size = sizeof(Cursos::all());
+        $cursos = [];
+        for ($i=0; $i < $size; $i++) { 
+            $nombreCurso = Cursos::all()[$i]->nombre;
+            $cursos[$nombreCurso] = Cursos::all()[$i]->id;
+        }
+        
+        // Se ordena el arreglo
+        ksort($cursos);
+
+        $datos['cursosNombres'] = $cursos;
+        
+        return view('cursos.create', $datos);
     }
 
     /**
@@ -43,62 +56,102 @@ class CursosController extends Controller
         $campos = [
             'academias_id' => 'required|string',
             'maestros_id' => 'required|string',
-            'nombre' => 'required|string|max:50',
-            'precio' => 'required|numeric'
+            'cursos_id' => 'string',
+            'nombre' => '',
+            'precio' => ''
         ];
-
-        $Mensaje = ["required" => 'Campo :attribute es requerido'];
         
-        
-        $this->validate($request,$campos,$Mensaje);
-
-
+        // Se traen todos los datos, excepto _token
         $datosCurso = request()->except('_token');
         $academias_id = $datosCurso['academias_id'];
         $maestros_id = $datosCurso['maestros_id'];
-
-        $datosCurso = request()->except(['_token','academias_id','maestros_id']);
-
+        $cursos_id = $datosCurso['cursos_id'];
+        
         //Quitar acentos y convertir a mayúsculas
-
-        //Codificamos la cadena en formato utf8 en caso de que nos de errores
         $cadena = $datosCurso['nombre'];
+        if ($datosCurso['nombre'] != '') {
+            //Ahora reemplazamos las letras
+            $cadena = str_replace(
+                array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
+                array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
+                $cadena
+            );
 
-        //$cadena = utf8_encode($cadena);
+            $cadena = str_replace(
+                array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+                array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+                $cadena );
 
-        //Ahora reemplazamos las letras
-        $cadena = str_replace(
-            array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
-            array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
-            $cadena
-        );
+            $cadena = str_replace(
+                array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+                array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+                $cadena );
 
-        $cadena = str_replace(
-            array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
-            array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
-            $cadena );
+            $cadena = str_replace(
+                array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+                array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+                $cadena );
 
-        $cadena = str_replace(
-            array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
-            array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
-            $cadena );
-
-        $cadena = str_replace(
-            array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
-            array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
-            $cadena );
-
-        $cadena = str_replace(
-            array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
-            array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
-            $cadena );
+            $cadena = str_replace(
+                array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+                array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+                $cadena );
+            
+            // Mayúscula
+            $cadena = strtoupper($cadena);
+        }    
         
-        // Mayúscula
-        $cadena = strtoupper($cadena);
         ///////////////////////////////////////
-        
-        // Se insertan los datos
+
+
+        // se traen todos los datos necesarios
+        $datosCurso = request()->except(['_token','academias_id','maestros_id', 'cursos_id']);
+        // Se le asigna el nombre sin acentos y en mayúsculas
         $datosCurso['nombre'] = $cadena;
+
+        if ($cursos_id == 'seleccionar') { // no se seleccionó un curso
+            $campos['nombre'] = 'required|string|max:50';
+            $campos['precio'] = 'required|numeric';
+            // Se verifica que no exista ese curso
+            foreach (Cursos::all() as $curso) {
+                if ($curso->nombre == $datosCurso['nombre']) {
+                    return redirect('cursos/create')->with('Mensaje','El curso '.$datosCurso['nombre'].' ya existe, búscalo en la lista');
+                }
+            }
+            
+        }else{
+            // se toman los datos del curso seleccionado
+            $datosCurso['nombre'] = Cursos::find($cursos_id)->nombre;
+            $datosCurso['precio'] = Cursos::find($cursos_id)->precio;
+            //dd(Cursos::find($cursos_id)->nombre);
+            //die();
+        }
+
+
+        $Mensaje = ["required" => 'Campo :attribute es requerido'];
+        $this->validate($request,$campos,$Mensaje);
+
+        
+
+
+        // Si la academia ya tiene ese curso - Se compara el nombre
+        $academiaNombre = Academias::find($academias_id)->nombre;
+        $size = sizeof(Cursos::all());
+        
+        foreach (Academias::find($academias_id)->cursos as $curso) {
+            if ($curso->nombre == $datosCurso['nombre']) {
+                    // El nombre se ha repetido
+                // Si el curso ya tiene ese maestro asociado
+                foreach (Maestros::find($maestros_id)->cursos as $cursoMaestro) {
+                    if ($cursoMaestro->nombre == $datosCurso['nombre']) {
+                        return redirect('cursos/create')->with('Mensaje','La academia '.$academiaNombre.' ya cuenta con el curso de '.$datosCurso['nombre'] .' impartida por el profesor seleccionado!!');
+                    }
+                }
+            }
+        }
+    
+
+        // Se insertan los datos, si no entró a la condición
         cursos::insert($datosCurso);
 
         
@@ -164,5 +217,10 @@ class CursosController extends Controller
         Cursos::destroy($id);
         return redirect('cursos')->with('Mensaje','curso eliminado con éxito');
     
+    }
+
+    public function other()
+    {
+        //
     }
 }

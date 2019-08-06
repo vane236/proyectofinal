@@ -17,6 +17,8 @@ class CreateAcademiasCursosTable extends Migration
             $table->increments('id');
 
             $table->integer('academias_id')->unsigned();
+            $table->foreign('academias_id')->references('id')
+                ->on('academias')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('cursos_id')->unsigned();
 
             $table->timestamps();

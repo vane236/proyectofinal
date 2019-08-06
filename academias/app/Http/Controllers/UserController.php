@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $datos['usuarios'] = User::paginate(3);
+        $datos['users'] = User::paginate(3);
 
         return view('usuarios.index', $datos);
     }
@@ -74,7 +74,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $usuario = usuarios::findOrFail($id);
+        $usuario = User::findOrFail($id);
 
         return view('usuarios.show', compact('usuario'));
     }
@@ -87,7 +87,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $usuario = usuarios::findOrFail($id);
+        $usuario = User::findOrFail($id);
 
         return view('usuarios.edit', compact('usuario'));
     }
@@ -145,6 +145,6 @@ class UserController extends Controller
             usuarios::destroy($id);
         }*/
         usuarios::destroy($id);
-        return redirect('usuarios')->with('Mensaje','usuario eliminada con éxito');
+        return redirect('usuarios')->with('Mensaje','Admin eliminada con éxito');
     }
 }

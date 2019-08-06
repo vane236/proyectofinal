@@ -4,11 +4,11 @@
 
 <div class="container">
 
-<form action="{{ url('/usuarios/'.$usuario->id) }}" method="post" enctype="multipart/form-data">
+<form action="{{ url('/alumnos/'.$alumno->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
 
-    @include('usuarios.form', ['Modo'=>'editar'])
+    @include('alumnos.form', ['Modo'=>'editar'])
 
     
 </form>

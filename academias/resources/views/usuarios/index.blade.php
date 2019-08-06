@@ -24,8 +24,6 @@
         <tr>
             <th>#</th>
             <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
             <th>Email</th>
             <th>Acciones</th>
         </tr>
@@ -40,19 +38,20 @@
             <img src="{{ asset('storage').'/'.$user->Foto }}" width="100" height="80" class="img-thumbnail" />
         </td>
         -->
-        <td>{{$user->nombre}}</td>        
-        <td>{{$user->direccion}}</td>
-        <td>{{$user->telefono}}</td>
+        <td>{{$user->name}}</td>        
         <td>{{$user->email}}</td>
         <td>
         
         <a href="{{ url('/usuarios/'.$user->id) }}" class="btn btn-primary">
             Detalles
         </a>
+        <!--
         <a href="{{ url('/usuarios/'.$user->id.'/edit') }}" class="btn btn-warning">
             Editar
         </a>
+        -->
 
+        <!--
         <form action="{{ url('/usuarios/'.$user->id) }}" method="post" style="display:inline">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
@@ -60,6 +59,7 @@
             <button class="btn btn-danger" type="submit" onclick="return confirm('¿Borrar?')">Borrar</button>
 
         </form>
+        -->
 
 
         </td>

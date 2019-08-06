@@ -39,4 +39,7 @@ Route::resource('maestros', 'MaestrosController');
 // Cursos
 Route::resource('cursos', 'CursosController');
 
+// Alumnos
+Route::resource('alumnos', 'AlumnosController');
+
 

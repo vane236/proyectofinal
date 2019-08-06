@@ -69,7 +69,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>65</h3>
+            <h3>{{$countAlumnos}}</h3>
 
             <p>Alumnos</p>
           </div>

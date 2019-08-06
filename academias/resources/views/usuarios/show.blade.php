@@ -8,24 +8,24 @@
 <br>
 
 <div class="form-group">
-    <label for="nombre" class="control-label"> Nombre <br>
-        {{ isset($user->nombre)?$user->nombre:old('nombre') }}
+    <label for="name" class="control-label"> name <br>
+        {{ isset($usuario->name)?$usuario->name:old('name') }}
     </label>
 </div>
 
 
 <div class="form-group">
     <label for="email" class="control-label"> Email <br>
-        {{ isset($user->email)?$user->email:old('email') }}    
+        {{ isset($usuario->email)?$usuario->email:old('email') }}    
     </label>
 </div>
 
 <!-- FOTO
 <div class="form-group">
     <label for="Foto" class="control-label"> {{'Foto'}} </label>
-    @if(isset($user->Foto))
+    @if(isset($usuario->Foto))
     <br>
-    <img src="{{ asset('storage').'/'.$user->Foto }}" class="img-thumbnail" alt="" width="200">
+    <img src="{{ asset('storage').'/'.$usuario->Foto }}" class="img-thumbnail" alt="" width="200">
     <br>
     @endif
     <input class="form-control {{ $errors->has('Foto') ? 'is-invalid':''}}" type="file" name="Foto" id="Foto" value="">

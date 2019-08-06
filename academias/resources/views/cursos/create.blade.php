@@ -4,9 +4,22 @@
 
 <div class="container">
 
+<!-- El curso ya está en esa academia - cursosControlles@store -->
+@if(Session::has('Mensaje'))
+
+<div class="alert alert-danger" role="alert">
+    {{ Session::get('Mensaje') }}
+</div>
+
+@endif
+
+
 @if(count($errors) > 0)
     <div class="alert alert-danger" role="alert">
         Existen datos incorrectos, verifique bien los campos
+        <ul>
+          <li> {{$errors->all()[0]}} </li>
+        </ul>
     </div>
 @endif
 
