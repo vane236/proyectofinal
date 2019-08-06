@@ -52,9 +52,27 @@
 
     {!! $errors->first('email','<div class="invalid-feedback">:message - No puede ser vacío/Ya ha sido tomado</div>') !!}
 </div>
-
-
 <br>
+
+<!-- Se selecciona un curso en caso de crear alumno -->
+@if ($Modo == 'crear')
+<label for="Curso">Selecciona curso</label><br>
+<select name="cursos_id" id="">
+    @foreach (App\Cursos::all() as $curso)
+        @foreach ($curso->maestros as $maestros)
+            {{$maestros_id = $maestros->pivot->maestros_id}}
+            {{$maestroNombre = App\Maestros::findOrFail($maestros_id)->name}}
+        @endforeach
+        @foreach ($curso->academias as $academias)
+            {{$academias_id = $academias->pivot->academias_id}}
+            {{$academiaNombre = App\Academias::findOrFail($academias_id)->nombre}}
+        @endforeach
+    <option value="{{$curso->id}}">{{ $curso->nombre.' - '.$maestroNombre.' - '.$academiaNombre}}</option>
+    @endforeach
+</select>
+@endif
+
+<br><br>
 <!-- Foto -->
 <div class="form-group">
     <label for="Foto" class="control-label"> {{'Foto'}} </label>

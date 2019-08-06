@@ -9,7 +9,6 @@
     {{ method_field('PATCH') }}
 
     @include('alumnos.form', ['Modo'=>'editar'])
-
     
 </form>
 

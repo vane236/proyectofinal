@@ -31,10 +31,6 @@
         <option value="">Seleccionar</option>
     </select> 
 
-    <label for="hola">
-            {!! $errors->first('maestros_id','<div class="invalid-feedback">:message - Puede ser que esta academia ya tenga este curso</div>') !!}
-    </label>
-
 
     <!-- Cursos -->
     <label for="Curso">Curso</label>

@@ -28,7 +28,6 @@
             <th>Teléfono</th>
             <th>Email</th>
             <th>Cursos</th>
-            <th>Academias</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -42,18 +41,23 @@
             <img src="{{ asset('storage').'/'.$alumno->Foto }}" width="80px" height="80px" class="img-thumbnail" />
         </td>
         
-        <td>{{$alumno->name.' '.$alumno->apellidoPaterno.' '.$alumno->apellidoMaterno}}</td>        
+        <td><strong>{{$alumno->nombre}}</strong> <br> {{$alumno->apellidoPaterno.' '.$alumno->apellidoMaterno}}</td>        
         <td>{{$alumno->telefono}}</td>
         <td>{{$alumno->email}}</td>
 
-        <td>
-             
+        <td> <!-- Cursos -->
+            @foreach (App\Alumnos::find($alumno->id)->cursos as $curso)
+                {{$curso->nombre . ' - '}}
+                @foreach (App\Cursos::find($curso->id)->academias as $academia)
+                    {{$academia->nombre}}
+                @endforeach
+                <br>
+            @endforeach
+            <br>
             
-        </td>
-
-        <td>
-            
-            
+            <a href="{{ url('/alumnos/addCurso/'.$alumno->id) }}" class="btn btn-success">
+                Agregar a curso
+            </a>
             
         </td>
         
@@ -61,7 +65,7 @@
         <td>
         
         <a href="{{ url('/alumnos/'.$alumno->id) }}" class="btn btn-primary">
-            Detalles
+            Ver
         </a>
         <a href="{{ url('/alumnos/'.$alumno->id.'/edit') }}" class="btn btn-warning">
             Editar

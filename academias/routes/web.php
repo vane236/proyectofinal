@@ -40,6 +40,10 @@ Route::resource('maestros', 'MaestrosController');
 Route::resource('cursos', 'CursosController');
 
 // Alumnos
+Route::get('/alumnos/addCurso/{id}', 'AlumnosController@addCursoEdit');
+Route::match(array('PUT', 'PATCH'), "/alumnos/{id}/addCurso", array(
+    'uses' => 'AlumnosController@addCurso'
+));
 Route::resource('alumnos', 'AlumnosController');
 
 

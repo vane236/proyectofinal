@@ -20,6 +20,13 @@ class Cursos extends Model
     {   
        return $this->belongsToMany(Maestros::class);
     }
+
+    // Relación con alumnos
+    public function alumnos()
+    {
+      return $this->belongsToMany(Alumnos::class)
+            ->withPivot(['calificacion']);
+    }
     
     
 }
