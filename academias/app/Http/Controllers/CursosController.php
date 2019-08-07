@@ -157,7 +157,7 @@ class CursosController extends Controller
 
         // Se verifica que el maestro no está en otro curso a la hora definida
         $hora_inicio = Horarios::find($horarios_id)->horaInicio;
-        foreach (Maestros::find($maestros_id)->cursos as $cursos) {
+        foreach (Maestros::find($maestros_id)->cursos as $curso) {
             foreach (Cursos::find($curso->id)->horarios as $horario) {
                 if ($hora_inicio == $horario->horaInicio) {
                     return redirect('cursos/create')->with('Mensaje','El profesor ya imparte clases en ese horario!!');            
