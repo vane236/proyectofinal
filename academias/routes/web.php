@@ -78,4 +78,4 @@ Route::get('/modificarCalificacion/{curso_id}/{alumno_id}', 'calificaciones@modi
 
 Route::match(array('PUT', 'PATCH'), "/nuevaCalificacion/{curso_id}/{alumno_id}", array(
     'uses' => 'calificaciones@nuevaCalificacion'
-));
+))->middleware('auth:maestros');

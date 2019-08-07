@@ -78,7 +78,7 @@ class calificaciones extends Controller
         }*/
 
         if (Cursos::find($curso_id)->alumnos()->updateExistingPivot($alumno_id,['calificacion' => $calificacion]) == 1) {
-            return redirect('maestroDashboard/verCurso/'.$curso_id)->with('Mensaje','calificacion modificada');
+            return redirect('maestroDashboard/verCurso/'.$curso_id)->with('Mensaje','calificacion modificada con éxito!');
         }
         
         return redirect('maestroDashboard/cursos')->with('Mensaje','calificacion modificada');

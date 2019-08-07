@@ -127,27 +127,21 @@
             <span>Academias</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="{{url('maestroDashboard/cursos')}}">
             <i class="fa fa-book"></i>
             <span>Cursos</span>
           </a>
         </li>
 
 
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="{{url('maestroDashboard/alumnos')}}">
             <i class="fa fa-user"></i>
             <span>Alumnos</span>
           </a>
         </li>
         
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-clock-o"></i>
-            <span>Horarios</span>
-          </a>
-        </li>
 
         <li>
         <a href="/maestros/{{Auth::user()->id}}/edit">

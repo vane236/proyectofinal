@@ -6,7 +6,7 @@
 <div class="container">
 
 <br>
-<h3>Cursos impartidos, para poner calificación de clic en ver</h3>
+<h3>Cursos impartidos, lista de alumnos - clic en ver</h3>
 <br>
 
 <table class="table table-light table-hover">

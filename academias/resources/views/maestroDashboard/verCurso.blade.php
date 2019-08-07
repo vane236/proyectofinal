@@ -5,9 +5,20 @@
 
 <div class="container">
 
+        @if(Session::has('Mensaje'))
 
-<h3>Lista de alumnos del curso {{$datosCurso->nombre}}</h3>
+        <div class="alert alert-success" role="alert">
+            {{ Session::get('Mensaje') }}
+        </div>
+        
+        @endif
+<h3>Lista de alumnos <br> curso: <strong>{{$datosCurso->nombre}}</strong></h3>
 <br>
+
+@foreach (App\Cursos::find($datosCurso->id)->horarios as $horario)
+    <h4>Horario: Lunes a Viernes de <strong>{{$horario->horaInicio}} a {{$horario->horaFin}} hrs</strong></h4> 
+@endforeach
+
 
 <table class="table table-light table-hover">
     <thead class="thead-light">
@@ -68,7 +79,7 @@
 </table>
 
 <br>
-<a href="{{ url('maestrosHome')}}" class="btn btn-primary">Regresar</a>
+<a href="{{ url('maestroDashboard/cursos')}}" class="btn btn-primary">Regresar</a>
 </div>
 
 @endsection

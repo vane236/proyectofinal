@@ -5,6 +5,11 @@
 
 <div class="container">
 
+@if(count($errors) > 0)
+    <div class="alert alert-danger" role="alert">
+        Existen datos incorrectos, el rango de calificación es de 0 a 100.
+    </div>
+@endif
 
 <h3>Modificar calificación <br> curso: <strong>{{$datosCurso->nombre}}</strong>
 </h3>
@@ -43,7 +48,6 @@
                 {{ method_field('PATCH') }}
                 <input type="number" placeholder="Nueva calificacion" name="calificacion">
                 <button class="btn btn-dark" type="submit" >Modificar</button>
-
             </form>
             
             </td>
