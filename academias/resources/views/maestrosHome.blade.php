@@ -32,14 +32,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
           <div class="inner">
-          <h3>2</h3>
+          <h3>{{$countAcademias}}</h3>
 
             <p>Academias</p>
           </div>
           <div class="icon">
             <i class="fa fa-university"></i>
           </div>
-          <a href="{{url('#')}}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{url('maestroDashboard/academias')}}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -47,14 +47,14 @@
         <!-- small box -->
         <div class="small-box bg-green">
           <div class="inner">
-          <h3>4<sup style="font-size: 20px"></sup></h3>
+          <h3>{{$countCursos}}<sup style="font-size: 20px"></sup></h3>
 
             <p>Cursos</p>
           </div>
           <div class="icon">
             <i class="fa fa-book"></i>
           </div>
-          <a href="{{ url('#') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('maestroDashboard/cursos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -64,14 +64,14 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>65</h3>
+            <h3>{{$countAlumnos}}</h3>
 
             <p>Alumnos</p>
           </div>
           <div class="icon">
             <i class="fa fa-user"></i>
           </div>
-          <a href="{{ url('#') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{ url('maestroDashboard/alumnos') }}" class="small-box-footer">Más información <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->

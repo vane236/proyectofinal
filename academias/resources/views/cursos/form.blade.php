@@ -32,6 +32,16 @@
     </select> 
 
 
+    <!-- Horario -->
+    <label for="Horario">Horario</label>
+    <select name="horarios_id">
+        @foreach (App\Horarios::all() as $horario)
+            <option value="{{$horario->id}}">{{$horario->horaInicio.' - '.$horario->horaFin.' hrs'}}</option>
+        @endforeach
+        <option value="">Seleccionar</option>
+    </select>
+
+
     <!-- Cursos -->
     <label for="Curso">Curso</label>
     <select name="cursos_id">
@@ -83,3 +93,6 @@
 <label for="maestros">Si la academia no está en la lista puede agregarla <a href="{{url('academias/create')}}">aquí</a></label>
 <br>
 <label for="maestros">Si el maestro no está en la lista puede agregarlo <a href="{{url('maestros/create')}}">aquí</a></label>
+
+<br>
+<label for="horarios">Si el horario no está en la lista puede agregarlo <a href="{{url('horarios/create')}}">aquí</a></label>

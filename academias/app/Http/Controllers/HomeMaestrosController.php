@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Maestros;
 use App\Academias;
+use App\Horarios;
+use App\Alumnos;
+use App\Cursos;
+use App\Pagos;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeMaestrosController extends Controller
@@ -26,10 +31,16 @@ class HomeMaestrosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $countAcademias = Academias::count();
-        $countUsuarios = User::count();
-        return view('maestrosHome',compact(['countAcademias','countUsuarios']));
+    {   
+        
+        $countCursos = sizeof(Maestros::find(Auth::user()->id)->cursos);
+        foreach (Maestros::find(Auth::user()->id)->cursos as $curso) {
+            $countAcademias = sizeof(Cursos::find($curso->id)->academias);
+            $countAlumnos = sizeof(Cursos::find($curso->id)->alumnos);
+            break;
+        }
+    
+        return view('maestrosHome',compact(['countAcademias','countAlumnos','countCursos']));
     }
 
 }

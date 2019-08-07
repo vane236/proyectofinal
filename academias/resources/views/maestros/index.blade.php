@@ -27,8 +27,6 @@
             <th>Nombre completo</th>
             <th>Teléfono</th>
             <th>Email</th>
-            <th>Cursos</th>
-            <th>Academias</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -45,17 +43,6 @@
         <td>{{$maestro->name.' '.$maestro->apellidoPaterno.' '.$maestro->apellidoMaterno}}</td>        
         <td>{{$maestro->telefono}}</td>
         <td>{{$maestro->email}}</td>
-
-        <td>
-             
-            
-        </td>
-
-        <td>
-            
-            
-            
-        </td>
         
         
         <td>

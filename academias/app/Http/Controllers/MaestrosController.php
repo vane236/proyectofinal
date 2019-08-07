@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Maestros;
+use App\Cursos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -160,6 +161,11 @@ class MaestrosController extends Controller
     public function destroy($id)
     {
         $maestro = Maestros::findOrFail($id);
+
+        // Quitar la relación con cursos
+        foreach ($maestro->cursos as $curso) {
+            Cursos::find($curso->id)->maestros()->detach($maestro->id);
+        }
 
         if(Storage::delete('public/'.$maestro->Foto)){
             Maestros::destroy($id);

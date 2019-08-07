@@ -4,51 +4,50 @@
 
 <div class="container">
 
-
+<center>
 <br>
 
 <div class="form-group">
     <label for="nombre" class="control-label"> Nombre <br>
-        {{ isset($academia->nombre)?$academia->nombre:old('nombre') }}
+        <strong>{{ isset($academia->nombre)?$academia->nombre:old('nombre') }}</strong>
     </label>
 </div>
 
 
 <div class="form-group">
     <label for="direccion" class="control-label"> Dirección <br>
-        {{ isset($academia->direccion)?$academia->direccion:old('direccion') }}    
+        <strong>{{ isset($academia->direccion)?$academia->direccion:old('direccion') }}    </strong>
     </label>
     
 </div>
 
 <div class="form-group">
     <label for="telefono" class="control-label"> Teléfono <br>
-        {{ isset($academia->telefono)?$academia->telefono:old('telefono') }}    
+        <strong>{{ isset($academia->telefono)?$academia->telefono:old('telefono') }}</strong>
     </label>
 </div>
 
 <div class="form-group">
     <label for="email" class="control-label"> Email <br>
-        {{ isset($academia->email)?$academia->email:old('email') }}    
+        <strong>{{ isset($academia->email)?$academia->email:old('email') }}</strong>
     </label>
 </div>
 
-<!-- FOTO
 <div class="form-group">
-    <label for="Foto" class="control-label"> {{'Foto'}} </label>
-    @if(isset($academia->Foto))
-    <br>
-    <img src="{{ asset('storage').'/'.$academia->Foto }}" class="img-thumbnail" alt="" width="200">
-    <br>
-    @endif
-    <input class="form-control {{ $errors->has('Foto') ? 'is-invalid':''}}" type="file" name="Foto" id="Foto" value="">
-    {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}
+    <label for="cursos" class="control-label"> Cursos que ofrece esta academia <br>
+        <ul>
+            @foreach ($academia->cursos as $curso)
+                <li>
+                    <a href="{{url('cursos/'.$curso->id)}}">{{$curso->nombre}}</a>
+                </li>
+            @endforeach
+        </ul>
+    </label>
 </div>
--->
 
 
-<a href="{{ url('academias')}}" class="btn btn-primary">Regresar</a>
-
+<a href="{{ url('academias')}}" class="btn btn-primary">Academias</a>
+</center>
 </div>
 
 @endsection

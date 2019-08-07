@@ -87,8 +87,16 @@
     {!! $errors->first('Foto','<div class="invalid-feedback">:message</div>') !!}
 </div>
 
+@if ($Modo == 'crear')
+    <input type="submit" class="btn btn-success" value="{{'Agregar maestro' }}">    
+@else
+    <input type="submit" class="btn btn-success" value="{{'Actualizar datos' }}">
+@endif
 
-<input type="submit" class="btn btn-success" value="{{ $Modo=='crear' ? 'Agregar maestro' : 'Modificar maestro' }}">
+@if ($Modo == 'crear')
+    <a href="{{ url('maestros')}}" class="btn btn-primary">Lista de maestros</a>
+@else
+    <a href="{{ url('maestrosHome')}}" class="btn btn-primary">Regresar</a>
+@endif
 
-
-<a href="{{ url('maestros')}}" class="btn btn-primary">Lista de maestros</a>
+    

@@ -95,7 +95,7 @@
         </label>
     </div>
 
-<a href="{{ url('alumnos')}}" class="btn btn-primary">Regresar</a>
+<a href="{{ url('alumnos')}}" class="btn btn-primary">Alumnos</a>
 <a href="{{ url('/alumnos/addCurso/'.$alumno->id) }}" class="btn btn-success">
     Agregar a curso
 </a>

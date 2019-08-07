@@ -121,8 +121,8 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="{{url('maestroDashboard/academias')}}">
             <i class="fa fa-university"></i>
             <span>Academias</span>
           </a>

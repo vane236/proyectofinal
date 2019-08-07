@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Cursos;
 use App\Maestros;
 use App\Academias;
+use App\Horarios;
+use App\Alumnos;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -57,6 +59,7 @@ class CursosController extends Controller
             'academias_id' => 'required|string',
             'maestros_id' => 'required|string',
             'cursos_id' => 'string',
+            'horarios_id' => 'string',
             'nombre' => '',
             'precio' => ''
         ];
@@ -66,6 +69,7 @@ class CursosController extends Controller
         $academias_id = $datosCurso['academias_id'];
         $maestros_id = $datosCurso['maestros_id'];
         $cursos_id = $datosCurso['cursos_id'];
+        $horarios_id = $datosCurso['horarios_id'];
         
         //Quitar acentos y convertir a mayúsculas
         $cadena = $datosCurso['nombre'];
@@ -105,7 +109,7 @@ class CursosController extends Controller
 
 
         // se traen todos los datos necesarios
-        $datosCurso = request()->except(['_token','academias_id','maestros_id', 'cursos_id']);
+        $datosCurso = request()->except(['_token','academias_id','maestros_id', 'cursos_id','horarios_id']);
         // Se le asigna el nombre sin acentos y en mayúsculas
         $datosCurso['nombre'] = $cadena;
 
@@ -144,21 +148,32 @@ class CursosController extends Controller
                 // Si el curso ya tiene ese maestro asociado
                 foreach (Maestros::find($maestros_id)->cursos as $cursoMaestro) {
                     if ($cursoMaestro->nombre == $datosCurso['nombre']) {
-                        return redirect('cursos/create')->with('Mensaje','La academia '.$academiaNombre.' ya cuenta con el curso de '.$datosCurso['nombre'] .' impartida por el profesor seleccionado!!');
+                        return redirect('cursos/create')->with('Mensaje','La academia '.$academiaNombre.' ya cuenta con el curso de '.$datosCurso['nombre']);
                     }
                 }
             }
         }
     
 
+        // Se verifica que el maestro no está en otro curso a la hora definida
+        $hora_inicio = Horarios::find($horarios_id)->horaInicio;
+        foreach (Maestros::find($maestros_id)->cursos as $cursos) {
+            foreach (Cursos::find($curso->id)->horarios as $horario) {
+                if ($hora_inicio == $horario->horaInicio) {
+                    return redirect('cursos/create')->with('Mensaje','El profesor ya imparte clases en ese horario!!');            
+                }
+            }
+        }
+
         // Se insertan los datos, si no entró a la condición
         cursos::insert($datosCurso);
 
         
-        // Se crea la relación de curso con academia
+        // Se crea la relación de curso con academia, maestro y horario
         $size = sizeof(Cursos::all()); // tamaño del arreglo de todos los cursos
         $curso = Cursos::all()[$size-1]; // El último curso añadido
         
+        Horarios::find($horarios_id)->cursos()->attach($curso);
         Academias::find($academias_id)->cursos()->attach($curso);
         Maestros::find($maestros_id)->cursos()->attach($curso);
 
@@ -214,6 +229,27 @@ class CursosController extends Controller
     {
         $curso = Cursos::findOrFail($id);
 
+        // Quitar la relación con academias
+        foreach ($curso->academias as $academia) {
+            Academias::find($academia->id)->cursos()->detach($curso->id);
+        }
+
+        // Quitar la relación con maestros
+        foreach ($curso->maestros as $maestro) {
+            Maestros::find($maestro->id)->cursos()->detach($curso->id);
+        }
+
+        // Quitar la relación con alumnos
+        foreach ($curso->alumnos as $alumno) {
+            Alumnos::find($alumno->id)->cursos()->detach($curso->id);
+        }
+
+        // Quitar la relación con horarios
+        foreach ($curso->horarios as $horario) {
+            Horarios::find($horario->id)->cursos()->detach($curso->id);
+        }
+
+        
         Cursos::destroy($id);
         return redirect('cursos')->with('Mensaje','curso eliminado con éxito');
     

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Academias;
 use App\Maestros;
 use App\Cursos;
+use App\Alumnos;
+use App\Horarios;
 use Illuminate\Http\Request;
 
 class AcademiasController extends Controller
@@ -139,12 +141,26 @@ class AcademiasController extends Controller
     {
         $academia = Academias::findOrFail($id);
 
+
         foreach ($academia->cursos as $curso) {
             foreach (Cursos::findOrFail($curso->pivot->cursos_id)->maestros as $maestro) 
             {
                 // quitar la relación con cursos_maestros
-                Maestros::findOrFail($maestro->pivot->maestros_id)->cursos()->detach($curso->pivot->cursos_id);                
+                Maestros::findOrFail($maestro->pivot->maestros_id)->cursos()->detach($curso->pivot->cursos_id);
             }
+
+            foreach (Cursos::findOrFail($curso->pivot->cursos_id)->alumnos as $alumno) 
+            {
+                // quitar la relación con cursos_alumnos
+                Alumnos::findOrFail($alumno->pivot->alumnos_id)->cursos()->detach($curso->pivot->cursos_id);
+            }
+
+            foreach (Cursos::findOrFail($curso->pivot->cursos_id)->horarios as $horario) 
+            {
+                // quitar la relación con cursos_horarios
+                Horarios::findOrFail($horario->pivot->horarios_id)->cursos()->detach($curso->pivot->cursos_id);
+            }
+
             // quitar la relación academias_cursos
             $academia->cursos()->detach($curso->pivot->cursos_id);
             Cursos::destroy($curso->pivot->cursos_id); // se elimina el curso

@@ -10,6 +10,8 @@
     </div>
 @endif
 
+<h3>Añadir maestro</h3>
+
 <form action="{{url('maestros')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
     {{ csrf_field() }}

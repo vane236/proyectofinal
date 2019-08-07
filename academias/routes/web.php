@@ -55,3 +55,27 @@ Route::match(array('PUT', 'PATCH'), "/pagos/{id}/realizarPago", array(
 Route::resource('pagos', 'PagosController');
 
 
+// Horarios
+Route::resource('horarios', 'HorariosController');
+
+
+// Maestro dashboard
+Route::get('maestroDashboard/academias', function () {
+    return view('maestroDashboard.academias');
+})->middleware('auth:maestros'); // datos del maestro
+
+Route::get('maestroDashboard/cursos', function () {
+    return view('maestroDashboard.cursos');
+})->middleware('auth:maestros'); // datos de cursos
+
+Route::get('maestroDashboard/alumnos', function () {
+    return view('maestroDashboard.alumnos');
+})->middleware('auth:maestros'); // datos de alumnos
+
+
+Route::get('/maestroDashboard/verCurso/{id}', 'calificaciones@show')->middleware('auth:maestros');
+Route::get('/modificarCalificacion/{curso_id}/{alumno_id}', 'calificaciones@modificarCalificacion')->middleware('auth:maestros');
+
+Route::match(array('PUT', 'PATCH'), "/nuevaCalificacion/{curso_id}/{alumno_id}", array(
+    'uses' => 'calificaciones@nuevaCalificacion'
+));
