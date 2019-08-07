@@ -193,8 +193,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/pagos/create"><i class="fa fa-circle-o"></i> pagos </a></li>
-          <li><a href="{{url('pagos')}}"><i class="fa fa-circle-o"></i> pagos </a></li>
+          <li><a href="{{url('pagos')}}"><i class="fa fa-circle-o"></i> Realizar/ver pago</a></li>
           </ul>
         </li>
 

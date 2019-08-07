@@ -47,3 +47,11 @@ Route::match(array('PUT', 'PATCH'), "/alumnos/{id}/addCurso", array(
 Route::resource('alumnos', 'AlumnosController');
 
 
+// Pagos
+Route::get('/pagos/create/{id}/{total}', 'PagosController@create');
+Route::match(array('PUT', 'PATCH'), "/pagos/{id}/realizarPago", array(
+    'uses' => 'PagosController@realizarPago'
+));
+Route::resource('pagos', 'PagosController');
+
+

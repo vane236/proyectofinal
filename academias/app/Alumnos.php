@@ -11,4 +11,10 @@ class Alumnos extends Model
     {
         return $this->belongsToMany(Cursos::class);
     }
+
+    // Relacion con pagos
+    public function pagos()
+    {
+        return $this->hasMany(Pagos::class);
+    }
 }
