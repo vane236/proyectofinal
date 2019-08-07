@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.maestroApp2')
 
 @section('content')
 
@@ -21,7 +21,7 @@
 
 
 
-<a href="{{ url('maestrosHome')}}" class="btn btn-primary">Regresar</a>
+<a href="{{ url('maestrosHome')}}" class="btn btn-primary">HOME</a>
 </center>
 </div>
 

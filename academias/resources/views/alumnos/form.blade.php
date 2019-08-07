@@ -1,6 +1,6 @@
 
 @if ($Modo == 'crear')
-    <h2> Añadir alumno </h2>
+    <h2> Alta alumno </h2>
 @else
     <h2> Editar datos del alumno </h2>
 @endif

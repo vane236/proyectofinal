@@ -91,60 +91,24 @@
                     
                     <nav class="navegacion">
                         <ul class="menu">
-                            <li><a href="{{url('home')}}">Dashboard</a></li>
-                            <li><a href="#">Academias</a>
-                                <ul class="submenu">
-                                    <li><a href="{{url('academias/create')}}">Agregar academia</a></li>
-                                    <li><a href="{{url('academias')}}">Ver lista de academias</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Academias</a></li>
                             <li><a href="#">Cursos</a>
-                                <ul class="submenu">
-                                    <li><a href="{{url('cursos/create')}}">Agregar curso</a></li>
-                                    <li><a href="{{url('cursos')}}">Ver lista de cursos</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Maestros</a>
-                                <ul class="submenu">
-                                    <li><a href="{{url('maestros/create')}}">Agregar maestro</a></li>
-                                    <li><a href="{{url('maestros')}}">Ver lista de maestros</a></li>
-                                </ul>
-                            </li>
                             <li><a href="#">Alumnos</a>
+                            <li><a href="#">Configuración</a>
                                 <ul class="submenu">
-                                    <li><a href="{{url('alumnos/create')}}">Alta alumno</a></li>
-                                    <li><a href="{{url('alumnos')}}">Ver lista de alumnos</a></li>
+                                    <li><a href="#">Servicio #1</a></li>
+                                    <li><a href="#">Servicio #2</a></li>
+                                    <li><a href="#">Servicio #3</a></li>
                                 </ul>
                             </li>
-                            
-
-                            <li><a href="#">Horarios</a>
-                                <ul class="submenu">
-                                    <li><a href="{{url('horarios/create')}}">Agregar horario</a></li>
-                                    <li><a href="{{url('horarios')}}">Ver lista de horarios</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="#">Cursos</a>
-                                <ul class="submenu">
-                                    <li><a href="{{url('pagos')}}">Realizar/ver pagos</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="#">Administradores</a>
-                                <ul class="submenu">
-                                    <li><a href="{{url('usuarios/create')}}">Agregar administrador</a></li>
-                                    <li><a href="{{url('usuarios')}}">Ver lista de administradores</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"></a></li>
+                            <li><a href="#">Contacto</a></li>
                                 <!-- User Account: style can be found in dropdown.less -->
                   <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             @if(isset(Auth::user()->Foto))          
                             <img src="{{ asset('storage').'/'.Auth::user()->Foto }}" class="user-image" width="50" alt="User Image">
                             @endif
-                            <img src="../../dist/img/avatar3.png" class="user-image" width="50" alt="User Image">
                           <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">

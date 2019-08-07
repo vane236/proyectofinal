@@ -50,7 +50,7 @@
             <th>Curso</th>
             <th>Maestro(a)</th>
             <th>Academia</th>
-            <th>Dar de baja</th>
+            <!--<th>Dar de baja</th>-->
         </tr>
     </thead>
 
@@ -77,7 +77,8 @@
                 @endforeach
             </td>
 
-            <td> <!-- method post -->
+            <!--
+            <td>  method post 
                 <form action="#" method="" style="display:inline">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
@@ -86,6 +87,7 @@
         
                 </form>
             </td>
+            -->
         </tr>
         @endforeach
     </tbody>

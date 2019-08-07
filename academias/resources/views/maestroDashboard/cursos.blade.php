@@ -1,12 +1,19 @@
 
-@extends('layouts.app2')
+@extends('layouts.maestroApp2')
 
 @section('content')
 
 <div class="container">
 
+    @php
+        $cantidadCursos = sizeof(App\Maestros::find(Auth::user()->id)->cursos);
+    @endphp
+    
+        
+    
+
 <br>
-<h3>Cursos impartidos, lista de alumnos - clic en ver</h3>
+<h3>Cursos impartidos: <strong>{{$cantidadCursos}}</strong></h3>
 <br>
 
 <table class="table table-light table-hover">
@@ -37,7 +44,7 @@
                 echo sizeof(App\Cursos::find($curso->id)->alumnos);
             @endphp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  
-            <a href="{{ url('maestroDashboard/verCurso/'.$curso->id)}}" class="btn btn-dark">Ver</a>
+            <a href="{{ url('maestroDashboard/verCurso/'.$curso->id)}}" class="btn btn-dark">Ver alumnos</a>
         </td>
 
         </tr>
@@ -46,7 +53,9 @@
 
 </table>
 
-<a href="{{ url('maestrosHome')}}" class="btn btn-primary">Regresar</a>
+<center>
+    <a href="{{ url('maestrosHome')}}" class="btn btn-primary">HOME</a>
+</center>
 
 </div>
 

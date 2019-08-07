@@ -33,6 +33,10 @@ Route::prefix('maestros')->group(function(){
 // El dashboard de los maestros
 Route::get('/maestrosHome', 'HomeMaestrosController@index')->name('maestros.dashboard');
 
+// Editar maestro pero en sesión de maestro
+Route::get('/maestros/{id}/edit', 'MaestrosController@edit')
+        ->middleware('auth:maestros');
+
 // Crear un maestro en el dashboard del admin/user
 Route::resource('maestros', 'MaestrosController');
 

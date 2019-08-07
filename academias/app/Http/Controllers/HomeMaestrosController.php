@@ -34,11 +34,17 @@ class HomeMaestrosController extends Controller
     {   
         
         $countCursos = sizeof(Maestros::find(Auth::user()->id)->cursos);
-        foreach (Maestros::find(Auth::user()->id)->cursos as $curso) {
-            $countAcademias = sizeof(Cursos::find($curso->id)->academias);
-            $countAlumnos = sizeof(Cursos::find($curso->id)->alumnos);
-            break;
+        if ($countCursos > 0) {
+            foreach (Maestros::find(Auth::user()->id)->cursos as $curso) {
+                $countAcademias = sizeof(Cursos::find($curso->id)->academias);
+                $countAlumnos = sizeof(Cursos::find($curso->id)->alumnos);
+                break;
+            }
+        }else{
+            $countAcademias = 0;
+            $countAlumnos = 0;
         }
+        
     
         return view('maestrosHome',compact(['countAcademias','countAlumnos','countCursos']));
     }

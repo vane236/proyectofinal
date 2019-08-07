@@ -32,6 +32,9 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -124,7 +127,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="academias/create"><i class="fa fa-circle-o"></i> Añadir academia</a></li>
+          <li><a href="academias/create"><i class="fa fa-circle-o"></i> Agregar academia</a></li>
           <li><a href="{{url('academias')}}"><i class="fa fa-circle-o"></i> Ver lista de academias</a></li>
           </ul>
         </li>
@@ -137,7 +140,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/cursos/create"><i class="fa fa-circle-o"></i> Añadir curso</a></li>
+          <li><a href="/cursos/create"><i class="fa fa-circle-o"></i> Agregar curso</a></li>
           <li><a href="{{url('cursos')}}"><i class="fa fa-circle-o"></i> Ver lista de cursos</a></li>
           </ul>
         </li>
@@ -150,7 +153,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/maestros/create"><i class="fa fa-circle-o"></i> Añadir maestro</a></li>
+          <li><a href="/maestros/create"><i class="fa fa-circle-o"></i> Agregar maestro</a></li>
           <li><a href="{{url('maestros')}}"><i class="fa fa-circle-o"></i> Ver lista de maestros</a></li>
           </ul>
         </li>
@@ -179,7 +182,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/horarios/create"><i class="fa fa-circle-o"></i> Añadir horario </a></li>
+          <li><a href="/horarios/create"><i class="fa fa-circle-o"></i> Agregar horario </a></li>
           <li><a href="{{url('horarios')}}"><i class="fa fa-circle-o"></i> Ver lista de horarios </a></li>
           </ul>
         </li>
@@ -207,7 +210,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="/usuarios/create"><i class="fa fa-circle-o"></i> Añadir administrador </a></li>
+          <li><a href="/usuarios/create"><i class="fa fa-circle-o"></i> Agregar administrador </a></li>
           <li><a href="{{url('usuarios')}}"><i class="fa fa-circle-o"></i> Ver lista de administradores </a></li>
           </ul>
         </li>

@@ -17,7 +17,7 @@
 @endif
 
 
-<h3>Añadir horario</h3>
+<h3>Agregar horario</h3>
 
 <form action="{{url('horarios')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
 

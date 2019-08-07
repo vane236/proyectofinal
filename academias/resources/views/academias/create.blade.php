@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-
+<h3>Añadir academia</h3>
 @if(count($errors) > 0)
     <div class="alert alert-danger" role="alert">
         Existen datos incorrectos, verifique bien los campos

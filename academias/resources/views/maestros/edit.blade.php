@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.maestroApp2')
 
 @section('content')
 
